@@ -93,3 +93,29 @@ input[type="checkbox"] {
 .popup-content button {
     margin: 5px;
 }
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #111827;
+    color: #f9fafb;
+}
+
+body.dark-mode h1,
+body.dark-mode #taskProgress,
+body.dark-mode #totalTasks {
+    color: #f9fafb;
+}
+
+body.dark-mode li {
+    background-color: #1f2937;
+    color: #f9fafb;
+}
+
+body.dark-mode .popup-content {
+    background-color: #1f2937;
+    color: #f9fafb;
+}
+
+body.dark-mode .popup-content h2 {
+    color: #93c5fd;
+}
