@@ -175,15 +175,16 @@ localStorage.setItem("tasks", JSON.stringify(tasks));
 displayTasks();
 
 
+
 function clearAllTasks() {
-    const confirmed = confirm(
-        "Are you sure you want to delete all tasks?"
-    );
+    document.getElementById("clearPopup").style.display = "flex";
+}
 
-    if (!confirmed) {
-        return;
-    }
+function closeClearPopup() {
+    document.getElementById("clearPopup").style.display = "none";
+}
 
+function confirmClearAll() {
     tasks = [];
 
     localStorage.setItem(
@@ -191,6 +192,7 @@ function clearAllTasks() {
         JSON.stringify(tasks)
     );
 
+    closeClearPopup();
     displayTasks();
 }
 
