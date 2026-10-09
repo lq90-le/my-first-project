@@ -3,6 +3,17 @@ let tasks = JSON.parse(
     localStorage.getItem("tasks") || "[]"
 );
 
+// Convert older text-only tasks to the new format
+tasks = tasks.map(function(task) {
+    if (typeof task === "string") {
+        return {
+            text: task,
+            completed: false
+        };
+    }
+
+    return task;
+});
 
 function displayTasks() {
     const list = document.getElementById("taskList");
@@ -11,7 +22,29 @@ function displayTasks() {
     tasks.forEach(function(task, index) {
         const item = document.createElement("li");
 
-        item.textContent = task + " ";
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = task.completed;
+
+        checkbox.onchange = function() {
+            tasks[index].completed = checkbox.checked;
+
+            localStorage.setItem(
+                "tasks",
+                JSON.stringify(tasks)
+            );
+
+            displayTasks();
+        };
+
+        item.appendChild(checkbox);
+
+        const taskText = document.createElement("span");
+        taskText.textContent = " " + task.text + " ";
+        taskText.style.textDecoration =
+            task.completed ? "line-through" : "none";
+
+        item.appendChild(taskText);
 
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
@@ -41,7 +74,10 @@ function addTask() {
         return;
     }
 
-    tasks.push(task);
+    tasks.push({
+        text: task,
+        completed: false
+    });
 
     localStorage.setItem(
         "tasks",
@@ -52,4 +88,5 @@ function addTask() {
     displayTasks();
 }
 
+localStorage.setItem("tasks", JSON.stringify(tasks));
 displayTasks();
