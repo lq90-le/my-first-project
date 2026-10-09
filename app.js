@@ -232,3 +232,14 @@ function saveEditedTask() {
     closeEditPopup();
     displayTasks();
 }
+
+
+function showMessagePopup(title, message) {
+    document.getElementById("messageTitle").textContent = title;
+    document.getElementById("messageText").textContent = message;
+    document.getElementById("messagePopup").style.display = "flex";
+}
+
+function closeMessagePopup() {
+    document.getElementById("messagePopup").style.display = "none";
+}
