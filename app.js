@@ -1,4 +1,19 @@
 
+let tasks = JSON.parse(
+    localStorage.getItem("tasks") || "[]"
+);
+
+function displayTasks() {
+    const list = document.getElementById("taskList");
+    list.innerHTML = "";
+
+    tasks.forEach(function(task) {
+        const item = document.createElement("li");
+        item.textContent = task;
+        list.appendChild(item);
+    });
+}
+
 function addTask() {
     const input = document.getElementById("taskInput");
     const task = input.value.trim();
@@ -8,11 +23,15 @@ function addTask() {
         return;
     }
 
-    const list = document.getElementById("taskList");
-    const item = document.createElement("li");
+    tasks.push(task);
 
-    item.textContent = task;
-    list.appendChild(item);
+    localStorage.setItem(
+        "tasks",
+        JSON.stringify(tasks)
+    );
 
     input.value = "";
+    displayTasks();
 }
+
+displayTasks();
