@@ -63,6 +63,24 @@ function displayTasks() {
         item.appendChild(deleteButton);
         list.appendChild(item);
     });
+
+    
+    const completedCount = tasks.filter(function(task) {
+        return task.completed;
+    }).length;
+
+    const remainingCount = tasks.length - completedCount;
+
+    document.getElementById("taskProgress").textContent =
+        "Completed: " + completedCount +
+        " | Remaining: " + remainingCount;
+
+    const progress = tasks.length === 0
+        ? 0
+        : (completedCount / tasks.length) * 100;
+
+    document.getElementById("progressFill").style.width =
+        progress + "%";
 }
 
 function addTask() {
