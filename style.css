@@ -119,3 +119,13 @@ body.dark-mode .popup-content {
 body.dark-mode .popup-content h2 {
     color: #93c5fd;
 }
+
+#welcomeMessage {
+    font-size: 18px;
+    color: #475569;
+    margin: 10px 0 20px;
+}
+
+body.dark-mode #welcomeMessage {
+    color: #cbd5e1;
+}
