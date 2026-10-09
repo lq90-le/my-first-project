@@ -129,3 +129,14 @@ body.dark-mode .popup-content h2 {
 body.dark-mode #welcomeMessage {
     color: #cbd5e1;
 }
+
+#liveClock {
+    font-size: 16px;
+    color: #2563eb;
+    font-weight: bold;
+    margin: 10px 0 20px;
+}
+
+body.dark-mode #liveClock {
+    color: #93c5fd;
+}
