@@ -71,6 +71,10 @@ function displayTasks() {
 
     const remainingCount = tasks.length - completedCount;
 
+    
+    document.getElementById("totalTasks").textContent =
+        "Total tasks: " + tasks.length;
+
     document.getElementById("taskProgress").textContent =
         "Completed: " + completedCount +
         " | Remaining: " + remainingCount;
