@@ -122,8 +122,6 @@ function displayTasks() {
 
         item.appendChild(editButton);
         
-item.appendChild(editButton);
-        
         list.appendChild(item);
     });
 
