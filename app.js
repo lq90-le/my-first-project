@@ -324,3 +324,18 @@ function updateClock() {
 updateClock();
 
 setInterval(updateClock, 1000);
+
+function updateGreeting() {
+    const hour = new Date().getHours();
+    const message = document.getElementById("welcomeMessage");
+
+    if (hour < 12) {
+        message.textContent = "Good morning! Ready to organize your day?";
+    } else if (hour < 18) {
+        message.textContent = "Good afternoon! Ready to organize your day?";
+    } else {
+        message.textContent = "Good evening! Ready to organize your day?";
+    }
+}
+
+updateGreeting();
