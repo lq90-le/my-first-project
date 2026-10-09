@@ -170,6 +170,7 @@ if (task === "") {
 
     input.value = "";
     displayTasks();
+    showMessagePopup("Success", "Task added successfully!");
 }
 
 localStorage.setItem("tasks", JSON.stringify(tasks));
