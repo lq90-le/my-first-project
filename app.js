@@ -6,6 +6,11 @@ function filterTasks(filter) {
     displayTasks();
 }
 
+
+function searchTasks() {
+    displayTasks();
+}
+
 let tasks = JSON.parse(
     localStorage.getItem("tasks") || "[]"
 );
@@ -26,6 +31,10 @@ function displayTasks() {
     const list = document.getElementById("taskList");
     list.innerHTML = "";
 
+    
+    const searchText = document.getElementById("searchInput")
+        .value.toLowerCase();
+
     tasks.forEach(function(task, index) {
 
         
@@ -34,6 +43,11 @@ function displayTasks() {
         }
 
         if (currentFilter === "completed" && !task.completed) {
+            return;
+        }
+
+        
+        if (!task.text.toLowerCase().includes(searchText)) {
             return;
         }
         
