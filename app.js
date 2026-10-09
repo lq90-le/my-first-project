@@ -96,6 +96,15 @@ function displayTasks() {
             task.completed ? "line-through" : "none";
 
         item.appendChild(taskText);
+        
+if (task.dueDate) {
+    const dueDateText = document.createElement("span");
+    dueDateText.textContent = " 📅 Due: " + task.dueDate;
+    dueDateText.style.fontSize = "13px";
+    dueDateText.style.marginLeft = "8px";
+
+    item.appendChild(dueDateText);
+}
 
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
