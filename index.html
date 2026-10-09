@@ -38,6 +38,18 @@
 </select>
     <ul id="taskList"></ul>
 
+    
+<div id="editPopup" class="popup">
+    <div class="popup-content">
+        <h2>Edit Task</h2>
+        <input id="editTaskInput" type="text" placeholder="Enter task">
+        <div>
+            <button onclick="saveEditedTask()">Save</button>
+            <button onclick="closeEditPopup()">Cancel</button>
+        </div>
+    </div>
+</div>
+
     <script src="app.js"></script>
 </body>
 </html>
