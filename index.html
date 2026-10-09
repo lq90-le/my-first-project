@@ -31,6 +31,11 @@
 
     
 <input id="searchInput" type="text" placeholder="Search tasks..." oninput="searchTasks()">
+    
+<select id="sortOrder" onchange="displayTasks()">
+    <option value="az">Sort: A to Z</option>
+    <option value="za">Sort: Z to A</option>
+</select>
     <ul id="taskList"></ul>
 
     <script src="app.js"></script>
