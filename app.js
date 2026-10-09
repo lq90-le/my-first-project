@@ -245,3 +245,22 @@ function showMessagePopup(title, message) {
 function closeMessagePopup() {
     document.getElementById("messagePopup").style.display = "none";
 }
+
+
+document.getElementById("editPopup").addEventListener("click", function(event) {
+    if (event.target.id === "editPopup") {
+        closeEditPopup();
+    }
+});
+
+document.getElementById("clearPopup").addEventListener("click", function(event) {
+    if (event.target.id === "clearPopup") {
+        closeClearPopup();
+    }
+});
+
+document.getElementById("messagePopup").addEventListener("click", function(event) {
+    if (event.target.id === "messagePopup") {
+        closeMessagePopup();
+    }
+});
