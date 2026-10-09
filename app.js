@@ -246,7 +246,7 @@ function closeMessagePopup() {
     document.getElementById("messagePopup").style.display = "none";
 }
 
-
+/* Make the pop-ups close when you click outside */
 document.getElementById("editPopup").addEventListener("click", function(event) {
     if (event.target.id === "editPopup") {
         closeEditPopup();
