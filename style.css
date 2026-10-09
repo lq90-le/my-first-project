@@ -140,3 +140,13 @@ body.dark-mode #welcomeMessage {
 body.dark-mode #liveClock {
     color: #93c5fd;
 }
+
+#todayDate {
+    font-size: 16px;
+    color: #475569;
+    margin: 10px 0 5px;
+}
+
+body.dark-mode #todayDate {
+    color: #cbd5e1;
+}
