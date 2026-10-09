@@ -158,10 +158,14 @@ if (task === "") {
     return;
 }
 
-    tasks.push({
-        text: task,
-        completed: false
-    });
+    
+const dueDate = document.getElementById("taskDueDate").value;
+
+tasks.push({
+    text: task,
+    completed: false,
+    dueDate: dueDate
+});
 
     localStorage.setItem(
         "tasks",
