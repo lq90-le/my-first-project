@@ -35,7 +35,27 @@ function displayTasks() {
     const searchText = document.getElementById("searchInput")
         .value.toLowerCase();
 
-    tasks.forEach(function(task, index) {
+    
+    const sortOrder = document.getElementById("sortOrder").value;
+
+    const sortedTasks = tasks.map(function(task, index) {
+        return { task: task, index: index };
+    });
+
+    sortedTasks.sort(function(a, b) {
+        const nameA = a.task.text.toLowerCase();
+        const nameB = b.task.text.toLowerCase();
+
+        if (sortOrder === "za") {
+            return nameB.localeCompare(nameA);
+        }
+
+        return nameA.localeCompare(nameB);
+    });
+
+    sortedTasks.forEach(function(entry) {
+        const task = entry.task;
+        const index = entry.index;
 
         
         if (currentFilter === "active" && task.completed) {
