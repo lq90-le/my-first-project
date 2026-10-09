@@ -112,6 +112,35 @@ function displayTasks() {
         };
 
         item.appendChild(deleteButton);
+
+        
+const editButton = document.createElement("button");
+editButton.textContent = "Edit";
+
+editButton.onclick = function() {
+    const newText = prompt("Edit your task:", task.text);
+
+    if (newText === null) {
+        return;
+    }
+
+    if (newText.trim() === "") {
+        alert("Task cannot be empty!");
+        return;
+    }
+
+    tasks[index].text = newText.trim();
+
+    localStorage.setItem(
+        "tasks",
+        JSON.stringify(tasks)
+    );
+
+    displayTasks();
+};
+
+item.appendChild(editButton);
+        
         list.appendChild(item);
     });
 
