@@ -113,21 +113,15 @@ function displayTasks() {
 
         item.appendChild(deleteButton);
 
+        const editButton = document.createElement("button");
+        editButton.textContent = "Edit";
+
+        editButton.onclick = function() {
+            openEditPopup(index, task.text);
+        };
+
+        item.appendChild(editButton);
         
-const editButton = document.createElement("button");
-editButton.textContent = "Edit";
-
-editButton.onclick = function() {
-    openEditPopup(index, task.text);
-
-    
-const editButton = document.createElement("button");
-editButton.textContent = "Edit";
-
-editButton.onclick = function() {
-    openEditPopup(index, task.text);
-};
-
 item.appendChild(editButton);
         
         list.appendChild(item);
