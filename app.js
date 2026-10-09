@@ -305,12 +305,20 @@ if (localStorage.getItem("darkMode") === "true") {
     }
 }
 
-function updateClock() {
-    const clock = document.getElementById("liveClock");
 
+function updateClock() {
     const now = new Date();
 
+    const clock = document.getElementById("liveClock");
     clock.textContent = now.toLocaleTimeString();
+
+    const date = document.getElementById("todayDate");
+    date.textContent = now.toLocaleDateString(undefined, {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+    });
 }
 
 updateClock();
