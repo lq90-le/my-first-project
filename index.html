@@ -4,8 +4,23 @@
 <head>
     <title>My First Website</title>
 </head>
+
 <body>
     <h1>Hello World!</h1>
+
     <p>This is my first website.</p>
+
+    <button onclick="showMessage()">
+        Click Me
+    </button>
+
+    <p id="result"></p>
+
+    <script>
+        function showMessage() {
+            document.getElementById("result").textContent =
+                "Congratulations! You clicked the button!";
+        }
+    </script>
 </body>
 </html>
