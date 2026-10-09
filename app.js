@@ -108,3 +108,23 @@ function addTask() {
 
 localStorage.setItem("tasks", JSON.stringify(tasks));
 displayTasks();
+
+
+function clearAllTasks() {
+    const confirmed = confirm(
+        "Are you sure you want to delete all tasks?"
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    tasks = [];
+
+    localStorage.setItem(
+        "tasks",
+        JSON.stringify(tasks)
+    );
+
+    displayTasks();
+}
