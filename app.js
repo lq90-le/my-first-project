@@ -264,3 +264,12 @@ document.getElementById("messagePopup").addEventListener("click", function(event
         closeMessagePopup();
     }
 });
+
+/* pressing Escape will close an open pop-up. */
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closeEditPopup();
+        closeClearPopup();
+        closeMessagePopup();
+    }
+});
