@@ -1,4 +1,11 @@
 
+let currentFilter = "all";
+
+function filterTasks(filter) {
+    currentFilter = filter;
+    displayTasks();
+}
+
 let tasks = JSON.parse(
     localStorage.getItem("tasks") || "[]"
 );
@@ -20,6 +27,16 @@ function displayTasks() {
     list.innerHTML = "";
 
     tasks.forEach(function(task, index) {
+
+        
+        if (currentFilter === "active" && task.completed) {
+            return;
+        }
+
+        if (currentFilter === "completed" && !task.completed) {
+            return;
+        }
+        
         const item = document.createElement("li");
 
         const checkbox = document.createElement("input");
