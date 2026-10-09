@@ -118,25 +118,14 @@ const editButton = document.createElement("button");
 editButton.textContent = "Edit";
 
 editButton.onclick = function() {
-    const newText = prompt("Edit your task:", task.text);
+    openEditPopup(index, task.text);
 
-    if (newText === null) {
-        return;
-    }
+    
+const editButton = document.createElement("button");
+editButton.textContent = "Edit";
 
-    if (newText.trim() === "") {
-        alert("Task cannot be empty!");
-        return;
-    }
-
-    tasks[index].text = newText.trim();
-
-    localStorage.setItem(
-        "tasks",
-        JSON.stringify(tasks)
-    );
-
-    displayTasks();
+editButton.onclick = function() {
+    openEditPopup(index, task.text);
 };
 
 item.appendChild(editButton);
@@ -210,5 +199,42 @@ function clearAllTasks() {
         JSON.stringify(tasks)
     );
 
+    displayTasks();
+}
+
+
+let editingTaskIndex = null;
+
+function openEditPopup(index, currentText) {
+    editingTaskIndex = index;
+
+    document.getElementById("editTaskInput").value = currentText;
+    document.getElementById("editPopup").style.display = "flex";
+}
+
+function closeEditPopup() {
+    document.getElementById("editPopup").style.display = "none";
+    editingTaskIndex = null;
+}
+
+function saveEditedTask() {
+    const input = document.getElementById("editTaskInput");
+    const newText = input.value.trim();
+
+    if (newText === "") {
+        input.placeholder = "Please enter a task!";
+        input.focus();
+        return;
+    }
+
+    if (editingTaskIndex === null) {
+        return;
+    }
+
+    tasks[editingTaskIndex].text = newText;
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
+    closeEditPopup();
     displayTasks();
 }
