@@ -44,3 +44,14 @@ li {
     border-radius: 6px;
     text-align: left;
 }
+
+
+/* Checkbox styling */
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    margin-right: 8px;
+    vertical-align: middle;
+    cursor: pointer;
+}
