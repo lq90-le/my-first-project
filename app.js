@@ -304,3 +304,15 @@ if (localStorage.getItem("darkMode") === "true") {
         button.textContent = "☀️ Light Mode";
     }
 }
+
+function updateClock() {
+    const clock = document.getElementById("liveClock");
+
+    const now = new Date();
+
+    clock.textContent = now.toLocaleTimeString();
+}
+
+updateClock();
+
+setInterval(updateClock, 1000);
